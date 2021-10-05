@@ -1,0 +1,102 @@
+<% extend('../layout', { title:'Piscine MERN J-2 - exo 7' }) %>
+
+<h1>Espace admin</h1>
+<h2><%= message %></h2>
+
+<a class="btn btn-primary" data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="filter">Filtrer </a>
+<div class="collapse" id="filter">
+    <form  class="form-group" action="/admin">
+        <div class="form-group">
+            <label for="sortId">  </label>
+            <select class="form-control" name="sortId" id="sortId">
+                <option value="">---</option>
+                <option value="$gt" <% if (query.sortId === '$gt'){ %> selected <% } %>>superieur</option>
+                <option value="$lt" <% if (query.sortId === '$lt'){ %> selected <% } %>>inférieur</option>
+            </select>
+        </div>
+
+        <label for="id"> Recherche par ID : </label>
+        <input class="form-control" name="id" id="id" type="text" placeholder="Recherche : id" value="<%= query.id %>">
+
+        <label for="searchFirstname"> Recherche par firstname : </label>
+        <input class="form-control" name="searchFirstname" id="searchFirstname" type="text" placeholder="Recherche : firstname" value="<%= query.searchFirstname %>">
+
+        <label for="searchLastname"> Recherche par lastname : </label>
+        <input class="form-control" name="searchLastname" id="searchLastname" type="text" placeholder="Recherche : lastname" value="<%= query.searchLastname %>">
+
+        <label for="searchEmail">  Recherche par email :  </label>
+        <input class="form-control" name="searchEmail" id="searchEmail" type="text" placeholder="Recherche : email" value="<%= query.searchEmail %>">
+        <br>
+
+        <div class="form-group">
+            <label for="admin"> Admin </label>
+            <select class="form-control" name="admin" id="admin">
+                <option value="">---</option>
+                <option value="true" <% if (query.admin === true){ %> selected <% } %>>Oui</option>
+                <option value="false" <% if (query.admin === false){ %> selected <% } %>>Non</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="validated">Statut </label>
+            <select class="form-control" name="validated" id="validated">
+                <option value="">---</option>
+                <option value="validated" <% if (query.validated === 'validated'){ %> selected <% } %>>Validated</option>
+                <option value="in progress" <% if (query.validated === 'in progress'){ %> selected <% } %>>In progress</option>
+                <option value="rejected" <% if (query.validated === 'rejected'){ %> selected <% } %>>Rejected</option>
+            </select>
+        </div>
+
+        <input class=" btn btn-primary" type="submit" value="Recherche">
+    </form>
+</div>
+
+<hr>
+
+<a class="btn btn-primary" data-toggle="collapse" href="#sort" role="button" aria-expanded="false" aria-controls="sort">Trier</a>
+<div class="collapse" id="sort">
+    <form action="/admin">
+        <div class="form-group">
+            <label for="sortBy"> </label>
+            <select class="form-control" name="sortBy" id="sortBy">
+                <option value="id" <% if (sort.sortBy === 'id'){ %> selected <% } %> >Id</option>
+                <option value="lastname"  <% if (sort.sortBy === 'lastname'){ %> selected <% } %> >Lastname</option>
+                <option value="firstname" <% if (sort.sortBy === 'firstname'){ %> selected <% } %> >Firstname</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="inOrder"> </label>
+            <select class="form-control" name="inOrder" id="inOrder">
+                <option value="1" <% if (sort.inOrder === 1){ %> selected <% } %>>A-Z</option>
+                <option value="-1" <% if (sort.inOrder === -1){ %> selected <% } %>>Z-A</option>
+            </select>
+        </div>
+
+        <input class=" btn btn-primary" type="submit" value="Trier">
+    </form>
+</div>
+<hr>
+<ul class="list-group">
+    <% students.forEach(function(student) { %>
+        <li class="list-group-item">
+           <strong><%= student.firstname %> <%= student.lastname %> </strong>
+            <ul>
+                <li>Email : <%= student.email %> </li>
+                <li>Phone : <%= student.phone %> </li>
+                <li>Statut : <%= student.validated %> </li>
+                <li>Admin <%= student.admin %> </li>
+                <li>
+                    <form class="form-inline" method="post" action="/admin/delete/<%= student.id %>?_method=DELETE">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-primary" type="submit">Supprimer</button>
+
+                        <a class="btn btn-primary" href="/admin/edit/<%= student.id %>"> Editer</a>
+                    </form>
+                </li>
+            </ul>
+        </li>
+    <% }); %>
+</ul>
+
+<a class="btn btn-primary" href="/admin/add">Ajouter un étudiant</a>

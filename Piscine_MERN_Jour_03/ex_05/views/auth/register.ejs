@@ -1,0 +1,19 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - REGISTER'}) %>
+
+<h2>REGISTER</h2>
+
+<form class="form-group" method="POST" action="/register">
+    <label for="login">Login </label>
+    <input class="form-control" id="login" name="login" required type="text">
+
+    <label for="email">Email</label>
+    <input class="form-control" name="email" id="email" type="email" required placeholder="TOTO@TOTO.FR">
+
+    <label for="password">Password</label>
+    <input class="form-control" name="password" id="password" required type="password">
+
+    <label for="passwordConfirm">Confirm password</label>
+    <input class="form-control" name="passwordConfirm" id="passwordConfirm" required type="password">
+
+    <input class="btn btn-primary" type="submit" value="Envoyer">
+</form>

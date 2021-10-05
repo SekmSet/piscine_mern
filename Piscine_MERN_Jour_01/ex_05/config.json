@@ -1,0 +1,7 @@
+{
+    "server":"express",
+    "mode":"development",
+    "port": 4242,
+    "host":"localhost"
+}
+

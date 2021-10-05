@@ -1,0 +1,37 @@
+<% extend('../layout', { title:'Piscine MERN J-2 - exo 7' }) %>
+<h1>Editer un student </h1>
+<h2><%= message %></h2>
+
+<form method="POST" action="/admin/edit/<%= student.id %>?_method=PUT">
+    <label for="firstname">Firstname </label>
+    <input class="form-control" id="firstname" name="firstname" value="<%= student.firstname %>" required type="text">
+
+    <label for="lastname">Lastname</label>
+    <input class="form-control" name="lastname" id="lastname" value="<%= student.lastname %>"  required type="text">
+
+    <label for="email">Email</label>
+    <input class="form-control" name="email" id="email" value="<%= student.email %>" required type="email">
+
+    <label for="phone">Phone</label>
+    <input class="form-control" name="phone" id="phone" value="<%= student.phone %>" required type="text">
+
+    <p>Admin : </p>
+    <div class="form-checked">
+        <input type="radio" id="admin" name="admin" required value="oui" <% if (student.admin){ %> checked <% } %> >
+        <label for="admin">Oui</label>
+
+        <input type="radio" id="admin_non" name="admin" required value="non" <% if (!student.admin){ %> checked <% } %> >
+        <label for="admin_non">Non</label>
+    </div>
+
+    <div class="gorm-group">
+        <label for="validated">Validation</label>
+        <select class="form-control" name="validated" id="validated">
+            <option value="validated" <% if (student.validated === 'validated'){ %> selected <% } %> > Validated </option>
+            <option value="in progress" <% if (student.validated === 'in progress'){ %> selected <% } %> > In Progress </option>
+            <option value="rejected" <% if (student.validated === 'rejected'){ %> selected <% } %> > Rejected </option>
+        </select>
+    </div>
+
+    <input type="submit" value="Sauvegarder">
+</form>

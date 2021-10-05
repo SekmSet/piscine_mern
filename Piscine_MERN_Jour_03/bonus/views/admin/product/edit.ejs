@@ -1,0 +1,38 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - UPDATE PRODUCT ADMIN'}) %>
+
+<h2>Modifier un produit</h2>
+
+<form class="form-group" method="POST" action="/admin/product/edit/<%= product.id %> %>" enctype="multipart/form-data">
+    <label for="title">Article : </label>
+    <input class="form-control" id="title" name="title" required value="<%= product.title %>" type="text">
+
+    <label for="price">Prix : </label>
+    <input class="form-control" name="price" id="price" type="text" value="<%= product.price %>" required >
+
+    <div class="form-group">
+        <label for="category">Catégorie</label>
+        <select class="form-control" name="category" id="category">
+            <option value=""></option>
+            <% categories.forEach(function(category) { %>
+
+                <option value="<%= category._id %>"
+                    <% if (category.id == product.category) { %>
+                        selected
+                    <% } %> > <%= category.name %>
+                </option>
+            <% }); %>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="resum">Description</label>
+        <textarea class="form-control" id="resum" name="resum" rows="3"><%= product.resum %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="file">Image</label>
+        <input class="form-control" type="file" id="file" name="file">
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Modifier">
+</form>

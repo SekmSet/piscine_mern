@@ -1,0 +1,13 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - LOGIN'}) %>
+
+<h2>LOGIN</h2>
+
+<form class="form-group" method="POST" action="/login">
+    <label for="login">Login </label>
+    <input class="form-control" id="login" name="login" required type="text">
+
+    <label for="password">Password</label>
+    <input class="form-control" name="password" id="password" required type="password">
+
+    <input class="btn btn-primary" type="submit" value="Envoyer">
+</form>

@@ -1,0 +1,22 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - USERS ADMIN '}) %>
+
+<h2>USERS</h2>
+
+<ul>
+    <% users.forEach(function(user) { %>
+        <li><%= user.login %> - Admin :
+            <% if(user.admin === true){ %>
+                &#127823;
+            <%} else { %>
+                &#127822;
+            <%} %></li>
+
+        <a class="btn btn-primary" href="/admin/user/edit/<%= user.id %>">Modifier</a>
+        <form method="post" action="/admin/user/delete/<%= user.id %>">
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+        </form>
+        <hr>
+    <% }); %>
+</ul>
+
+<a class="btn btn-primary" href="/admin/user/add">Ajouter un utilisateur</a>

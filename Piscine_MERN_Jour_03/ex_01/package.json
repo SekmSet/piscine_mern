@@ -1,0 +1,21 @@
+{
+  "name": "piscine_mern_jour_03",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epitech.eu:/priscilla.joly@epitech.eu/Piscine_MERN_Jour_03"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "router": "^1.3.5"
+  },
+  "devDependencies": {},
+  "description": ""
+}

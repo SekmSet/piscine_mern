@@ -1,0 +1,11 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - SHOW SHOP'}) %>
+
+<h2>HOME</h2>
+
+<h4><%= product.title %> - <%= product.price %>€</h4>
+
+<p><%= product.resum %></p>
+
+<%if( typeof product.category !== 'undefined' ) { %>
+    <p>Categorie: <%= product.category.name %></p>
+<%}%>

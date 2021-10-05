@@ -1,0 +1,12 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - INDEX SHOP'}) %>
+
+<h2>MA BOUTIQUE</h2>
+
+<ul>
+    <% products.forEach(function(product) { %>
+        <li><%= product.title %> - <%= product.price %>€</li>
+        <ul>
+            <li><a href="/shop/<%= product.id %>">Voir plus</a></li>
+        </ul>
+    <% }); %>
+</ul>

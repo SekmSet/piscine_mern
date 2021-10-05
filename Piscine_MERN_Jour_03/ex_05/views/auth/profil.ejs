@@ -1,0 +1,22 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - PROFIL'}) %>
+
+<h2>PROFIL</h2>
+
+Bonjour <%= locals.user.login %>
+
+<form action="#">
+    <div class="form-group">
+        <label  for="">Login</label>
+        <input type="text" class="form-control"value="<%= locals.user.login %>"  disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="text" class="form-control" value="<%= locals.user.email %>" disabled>
+    </div>
+
+    <div class="form-group">
+        <label for="">Admin</label>
+        <input class="form-control" value="<%= locals.user.admin %>" disabled type="text">
+    </div>
+</form>

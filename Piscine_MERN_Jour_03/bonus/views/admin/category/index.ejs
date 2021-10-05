@@ -1,0 +1,19 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - CATEGORY ADMIN'}) %>
+
+<h2>CATEGORIE</h2>
+
+<ul>
+    <% categories.forEach(function(categorie) { %>
+        <li> <%= categorie.name %> </li>
+
+        <a class="btn btn-primary" href="/admin/category/edit/<%= categorie.id %>">Modifier</a>
+
+        <form method="post" action="/admin/category/delete/<%= categorie.id %>">
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+        </form>
+        <hr>
+
+    <% }); %>
+</ul>
+
+<a class="btn btn-primary" href="/admin/category/add">Ajouter une catégorie</a>

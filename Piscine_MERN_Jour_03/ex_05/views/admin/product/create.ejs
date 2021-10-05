@@ -1,0 +1,31 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - CREATE NEW PRODUCT'}) %>
+
+<h2>CREATE NEW PRODUCT</h2>
+
+<form method="post" action="/admin/add/product">
+    <div class="form-group">
+        <label for="title"> Nom du produit : </label>
+        <input type="text" class="form-control" id="title" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="price">Prix du produit : </label>
+        <input type="text" class="form-control" id="price" name="price">
+    </div>
+
+    <div class="form-group">
+        <label for="resum">Description du produit : </label>
+        <textarea class="form-control" id="resum" name="resum" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Catégorie</label>
+        <select class="form-control" id="category" name="category">
+            <% categories.forEach(function(categorie) { %>
+                <option value="<%= categorie.name %>"><%= categorie.name %></option>
+            <% }); %>
+        </select>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Ajouter">
+</form>

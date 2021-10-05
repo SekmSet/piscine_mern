@@ -1,0 +1,54 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - PRODUCT ADMIN'}) %>
+
+<h2>PRODUCT</h2>
+
+<form method="GET" action="/admin/product">
+    <select name="field">
+        <option value="">---</option>
+        <option value="title" <% if(sort.title == 1 || sort.title == -1){%>selected<%}%> >titre</option>
+        <option value="price" <% if(sort.price == 1 || sort.price == -1){%>selected<%}%>>prix</option>
+        <option value="createdAt" <% if(sort.createdAt == 1 || sort.createdAt == -1){%>selected<%}%>>date</option>
+    </select>
+
+    <select name="order">
+        <option value="">---</option>
+        <option value="1" <% if(sort.title == 1 || sort.price == 1 || sort.createdAt == 1){%>selected<%}%>>ASC</option>
+        <option value="-1" <% if(sort.title == -1 || sort.price == -1 || sort.createdAt == -1){%>selected<%}%>>DESC</option>
+    </select>
+
+    <hr>
+
+    <input type="text" name="title" class="form-control" placeholder="par titre" value="<% if(query.title){%><%= query.title.$regex %><% }%>">
+    <input type="text" name="resum" class="form-control" placeholder="par description" value="<% if(query.resum){%><%= query.resum.$regex %><% }%>">
+
+    <input type="submit" class="btn btn-primary" value="Rechercher">
+</form>
+
+<hr>
+
+<ul>
+    <% products.forEach(function(product) { %>
+        <li>
+            <%= product.title %> <br>
+            <%= product.price %> <br>
+            <%= product.createdAt %> <br>
+        </li>
+
+        <% if (product.image !== undefined) {%>
+            <img src="/<%= product.image %>" alt="Mon image : <%= product.title %>" height="100" width="100" >
+        <%} else {%>
+            <img src="https://picsum.photos/100/100" alt="Mon image : <%= product.title %>"  >
+        <%}%>
+
+        <br>
+
+        <a class="btn btn-primary" href="/admin/product/edit/<%= product.id %>">Modifier</a>
+
+        <form method="post" action="/admin/product/delete/<%= product.id %>">
+            <input class="btn btn-primary" type="submit" value="Supprimer">
+        </form>
+        <hr>
+    <% }); %>
+</ul>
+
+<a class="btn btn-primary" href="/admin/product/add">Ajouter un article</a>

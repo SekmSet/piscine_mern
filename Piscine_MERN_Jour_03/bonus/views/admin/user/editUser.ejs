@@ -1,0 +1,26 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - EDIT USER ADMIN'}) %>
+
+<h2>Modifier l'utilisateur</h2>
+
+<form class="form-group" method="POST" action="/admin/user/edit/<%= user.id %>">
+    <label for="login">Login </label>
+    <input class="form-control" id="login" name="login" value="<%= user.login %>" required type="text">
+
+    <label for="email">Email</label>
+    <input class="form-control" name="email" id="email" type="email" value="<%= user.email %>" required >
+
+    <p>Admin :</p>
+    <div>
+        <input type="radio" id="idok" name="admin" value="true"
+        <% if (user.admin === true) { %> checked <% } %>  >
+        <label for="idok">Oui</label>
+    </div>
+
+    <div>
+        <input type="radio" id="idko" name="admin" value="false"
+        <% if (user.admin === false) { %> checked  <% } %> >
+        <label for="idko">Non</label>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Envoyer">
+</form>

@@ -1,0 +1,23 @@
+<% extend('../layout', { title:'Piscine MERN J-2 - exo 6' }) %>
+
+<h2> Page qui affiche la liste des utilisateurs de votre collection « students » qui ont : </h2>
+
+<ul class="list-group">
+    <li class="list-group-item">le champ « validated » avec la valeur « in progress »</li>
+    <li class="list-group-item">triée par ordre alphabétique du champ « lastname ».</li>
+</ul>
+
+<h4><%= message %></h4>
+
+<ul class="list-group">
+    <% students.forEach(function(student) { %>
+    <li class="list-group-item" ><strong><%= student.firstname %> <%= student.lastname %></strong>
+        <ul>
+            <li> Email : <%= student.email %></li>
+            <li> Phone : <%= student.phone %></li>
+            <li> Status : <%= student.validated %></li>
+            <li> Admin : <%= student.admin %></li>
+        </ul>
+    </li>
+    <% }); %>
+</ul>

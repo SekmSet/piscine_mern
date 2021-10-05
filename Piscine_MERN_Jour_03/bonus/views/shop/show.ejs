@@ -1,0 +1,18 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - SHOW SHOP'}) %>
+
+<h2>HOME</h2>
+
+<h4><%= product.title %> - <%= product.price %>€</h4>
+
+<p><%= product.resum %></p>
+
+<%if( typeof product.category !== 'undefined' ) { %>
+    <p>Categorie: <%= product.category.name %></p>
+<%}%>
+
+
+<% if (product.image !== undefined) {%>
+    <img  class="card-img-top" src="/<%= product.image %>" alt="Mon image : <%= product.title %>" width="200" >
+<%} else {%>
+    <img  class="card-img-top" src="https://picsum.photos/200/200" alt="Mon image : <%= product.title %>" width="200" >
+<%}%>

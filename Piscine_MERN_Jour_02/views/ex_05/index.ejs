@@ -1,0 +1,39 @@
+<% extend('../layout', { title:'Piscine MERN J-2 - exo 5' }) %>
+
+<h2>REGISTER</h2>
+<h4><%= message %></h4>
+
+<form class="form-group" method="POST" action="/register">
+    <label for="firstname">Firstname </label>
+    <input class="form-control"  id="firstname" name="firstname" required type="text">
+
+    <label for="lastname">Lastname</label>
+    <input  class="form-control" name="lastname" id="lastname" required type="text">
+
+    <label for="email">Email</label>
+    <input  class="form-control" name="email" id="email" type="email" required placeholder="TOTO@TOTO.FR">
+
+    <label  for="phone">Phone</label>
+    <input  class="form-control" name="phone" id="phone" required type="text">
+
+    <p>Admin : </p>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" id="admin" name="admin"  value="oui" checked>
+        <label class="form-check-label" for="admin">Oui</label>
+
+        <input type="radio" id="admin_non" name="admin" value="non">
+        <label class="form-check-label" for="admin_non">Non</label>
+    </div>
+
+    <div class="form-group">
+        <label for="validated">Validation</label>
+        <select class="form-control" name="validated" id="validated">
+            <option value="validated">Validated</option>
+            <option value="in progress">In Progress</option>
+            <option value="rejected">Rejected</option>
+        </select>
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Envoyer">
+</form>
+

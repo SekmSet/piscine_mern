@@ -1,0 +1,25 @@
+{
+  "name": "piscine_mern_jour_02",
+  "version": "1.0.0",
+  "description": "## Install MongoDb",
+  "main": "ex_01.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-ejs-extend": "0.0.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^3.5.7",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.epitech.eu:/priscilla.joly@epitech.eu/Piscine_MERN_Jour_02"
+  },
+  "author": "",
+  "license": "ISC"
+}

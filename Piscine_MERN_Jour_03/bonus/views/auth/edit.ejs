@@ -1,0 +1,19 @@
+<% extend('../layout', {title: 'Piscine MERN J-3 - EDIT PROFIL'}) %>
+
+<h2>EDITER MON PROFIL</h2>
+
+<form class="form-group" method="POST" action="/profil/edit">
+    <label for="login">Login </label>
+    <input class="form-control" id="login" name="login" required value="<%= user.login %>" type="text">
+
+    <label for="email">Email</label>
+    <input class="form-control" name="email" id="email" type="email" required value="<%= user.email %>">
+
+    <label for="password">Password</label>
+    <input class="form-control" name="password" id="password"  type="password">
+
+    <label for="passwordConfirm">Confirm password</label>
+    <input class="form-control" name="passwordConfirm" id="passwordConfirm"  type="password">
+
+    <input class="btn btn-primary" type="submit" value="Sauvegarder">
+</form>

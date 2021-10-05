@@ -1,0 +1,10 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - EDIT CATEGORY ADMIN'}) %>
+
+<h2>Modifier une catégory</h2>
+
+<form class="form-group" method="POST" action="/admin/category/edit/<%= category.id %>">
+    <label for="name">Nom </label>
+    <input class="form-control" id="name" name="name" value="<%= category.name %>" required type="text">
+
+    <input class="btn btn-primary" type="submit" value="Ajouter">
+</form>

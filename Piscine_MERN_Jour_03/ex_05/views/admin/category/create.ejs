@@ -1,0 +1,11 @@
+<% extend('../../layout', {title: 'Piscine MERN J-3 - CREATE NEW PRODUCT'}) %>
+
+<h2>CREATE NEW PRODUCT</h2>
+<form method="post" action="/admin/add/category">
+    <div class="form-group">
+        <label for="name"> Nom de la catégorie : </label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Ajouter">
+</form>
